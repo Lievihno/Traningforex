@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <canvas id="tradingCanvas"></canvas>
+
 
 <header>
 <div class="logo">
@@ -22,6 +24,16 @@
 </header>
 
 <section class="hero">
+    <div class="chart-lines">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<svg class="chart-wave" viewBox="0 0 800 200">
+  <path d="M0 150 Q150 50 300 120 T600 80 T800 140" />
+</svg>
+
     <div class="hero-content">
         <h1>Trader Forex Professionnel</h1>
         <p>Apprenez à maîtriser le marché Forex avec une stratégie éprouvée.</p>
@@ -82,7 +94,7 @@
 </section>
 
 <section id="formations" class="section dark">
-    <h2>Nos Formations</h2>
+    <h2>Nos Formations</h2><br><br>
 <div class="affiche">
 <img src="affiche.jpg" alt="image">
 </div>
@@ -179,18 +191,43 @@ function closeForm() {
     </div>
 </section>
 
-<footer id="contact">
-    <h3>Suivez-nous</h3>
-    <div class="socials">
-        <a href="#">facebook</a>
-        <a href="#">YouTube</a>
-        <a href="#">Telegram</a>
-        <a href="#">WhatsApp</a>
+<footer id="contact" class="footer-pro">
+    
+    <div class="footer-top">
+        <h3>Suivez-nous</h3>
+        <div class="socials">
+            <!-- LinkedIn -->
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.79-1.75-1.75S5.53 4.25 6.5 4.25 8.25 5.03 8.25 6 7.47 7.75 6.5 7.75zm13.5 11.25h-3v-5.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5v5.5h-3v-10h3v1.25c.91-1.15 2.59-1.25 3.5-1.25 3 0 3.5 2 3.5 4.5v5.5z" />
+                </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="social-icon" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.497v-9.294h-3.128v-3.622h3.128v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24h-1.918c-1.504 0-1.795.715-1.795 1.763v2.308h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.405 0 22.675 0z" />
+                </svg>
+            </a>
+            <!-- Telegram -->
+            <a href="#" class="social-icon" aria-label="Telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12 0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm5.999 8.317l-1.51 7.14c-.115.523-.424.652-.86.406l-2.373-1.754-1.146 1.1c-.127.127-.233.233-.475.233l.171-2.428 4.414-3.995c.192-.171-.042-.266-.297-.095l-5.45 3.43-2.344-.733c-.509-.159-.518-.509.106-.75l9.166-3.53c.426-.159.8.105.665.744z" />
+                </svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="#" class="social-icon" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="24" height="24">
+        <path d="M380.9 97.1C339-13.7 212.4-9 167.6 70.5 115 164 142.2 273.1 196.2 309.5l-28.2 92.3 95.3-30c41 28.2 154.7 26.6 191.6-74.6 26.4-72-8.1-143.1-53.9-161.1zm-148.1 255.6c-56 0-101.4-45.4-101.4-101.4s45.4-101.4 101.4-101.4 101.4 45.4 101.4 101.4-45.4 101.4-101.4 101.4zm89.6-119.2l-13.6-7.2c-3.2-1.6-6.4-1.6-9.6 0-16 8-29.6 21.6-37.6 37.6-3.2 3.2-3.2 6.4 0 9.6l7.2 13.6c3.2 3.2 6.4 3.2 9.6 0 8-16 21.6-29.6 37.6-37.6 3.2-3.2 3.2-6.4 0-9.6z" />
+    </svg>
+</a>
+        </div>
     </div>
-    <p>© 2026 NTC academy. Tous droits réservés.</p>
+    <div class="footer-bottom">
+        <p>© 2026 NTC Academy. Tous droits réservés.</p>
+    </div>
 </footer>
 
-<button id="backToTop">^</button>
+<button id="backToTop">↑</button>
 
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
