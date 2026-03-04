@@ -120,3 +120,84 @@ backToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+/*anim 1*/
+
+
+const canvas = document.getElementById("tradingCanvas");
+const ctx = canvas.getContext("2d");
+
+// Resize canvas
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// Points pour la courbe
+let points = [];
+const numberOfPoints = 100;
+
+function initPoints() {
+    points = [];
+    for (let i = 0; i < numberOfPoints; i++) {
+        points.push({
+            x: i * (canvas.width / numberOfPoints),
+            y: canvas.height / 2,
+        });
+    }
+}
+initPoints();
+
+// Animation
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawGrid();
+    drawCurve();
+
+    requestAnimationFrame(animate);
+}
+
+// Dessiner la grille
+function drawGrid() {
+    ctx.strokeStyle = "rgba(255,255,255,0.05)";
+    ctx.lineWidth = 1;
+    const gridSize = 80;
+
+    // Lignes verticales
+    for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    // Lignes horizontales
+    for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+}
+
+// Dessiner la courbe animée
+function drawCurve() {
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+
+    for (let i = 1; i < points.length; i++) {
+        points[i].y = canvas.height / 2 + Math.sin((Date.now() * 0.002) + i * 0.3) * 100;
+        ctx.lineTo(points[i].x, points[i].y);
+    }
+
+    ctx.strokeStyle = "#32CD32";
+    ctx.lineWidth = 2;
+    ctx.shadowColor = "#32CD32";
+    ctx.shadowBlur = 15;
+    ctx.stroke();
+}
+
+animate();
